@@ -1,0 +1,41 @@
+{
+  "pond": {
+    "Albrey Brown": {
+      "id": "id1",
+      "humbleness": [],
+      "competitiveness": [
+        "id2",
+        "id3"
+      ],
+      "bravery": [
+        "id2",
+        "id3"
+      ]
+    },
+    "Bianca Gandolfo": {
+      "id": "id2",
+      "confidence": [
+        "id1",
+        "id3"
+      ],
+      "kindness": [
+        "id1",
+        "id3"
+      ],
+      "clairvoyant": [
+        "id1"
+      ]
+    },
+    "Preston Parry": {
+      "id": "id3",
+      "knowledgable": ["id1", "id2"],
+      "helpfulness": [
+        "id1",
+        "id2"
+      ],
+      "positivity": [
+        "id2"
+      ]
+    }
+  }
+}

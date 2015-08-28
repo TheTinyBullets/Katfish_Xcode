@@ -5,6 +5,8 @@
  'use strict';
 
  var React = require('react-native');
+ var Firebase = require('firebase');
+
  var {
   AppRegistry,
   Image,
