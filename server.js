@@ -1,7 +1,9 @@
 var app = require('express')();
- 
- app.get('/', function(req, res){
-  res.send('hello world');
-});
+var http = require('http');
+var server = http.createServer().listen(3000, 'localhost');
 
-app.listen(3000);
+server.on('request', function(req, res){
+  console.log("Req received!");
+  res.write('you hit the server baby');
+  res.end();
+});
