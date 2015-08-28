@@ -1,3 +1,4 @@
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -10,6 +11,7 @@
   Image,
   ListView,
   StyleSheet,
+  TabBarIOS,
   Text,
   View,
   TouchableHighlight,
@@ -27,6 +29,7 @@ var ThesisProject = React.createClass({
 
   getInitialState: function() {
     return {
+      selectedTab: 'Alert',
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
       }),
@@ -50,25 +53,62 @@ var ThesisProject = React.createClass({
     .done();
   },
 
+  _renderAlert: function () {
+    return (
+      <View>
+      <Text>Welcome to React Native!</Text>
+      <TouchableHighlight style={styles.button}
+        onPress={this.showAlert}>
+        <Text style={styles.buttonText}>Go</Text>
+      </TouchableHighlight>      
+      </View>
+    )
+  },
+
+  _renderMovie: function () {
+    return (
+      <ListView
+        dataSource={this.state.dataSource}
+        renderRow={this.renderMovie}
+        style={styles.listView}/>
+      )
+  },
+
   render: function() {
    if (!this.state.loaded) {
      return this.renderLoadingView();
    }
    return (
-      <View style={styles.container}>
-        <Text>
-          Welcome to React Native!
-        </Text>
-        <TouchableHighlight style={styles.button}
-            onPress={this.showAlert}>
-            <Text style={styles.buttonText}>Go</Text>
-          </TouchableHighlight>
-     <ListView
-     dataSource={this.state.dataSource}
-     renderRow={this.renderMovie}
-     style={styles.listView}
-     />
-    </View>
+      // <View style={styles.container}>
+      <TabBarIOS>
+        <TabBarIOS.Item
+          title="Alert!"
+          systemIcon="favorites"
+          selected={this.state.selectedTab === 'Alert'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'Alert'
+            })
+          }}>
+        {this._renderAlert()}
+        </TabBarIOS.Item>
+
+        <TabBarIOS.Item
+          title="Movies"
+          systemIcon="history"
+          selected={this.state.selectedTab === 'Movies'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'Movies'
+            })
+          }}>
+          {this._renderMovie()}
+        </TabBarIOS.Item>
+      </TabBarIOS>
+    
+
+
+    // </View>
 
      );
   },
