@@ -11,7 +11,6 @@ var $http = require('request');
   var userID = req.url.toString().match(/[0-9]+/g)[0];
   console.log('Katifish engaged on ', userID);
   var result = getData(userID);
-  console.log(result);
 });
 
 var getData = function(queryParam){
@@ -21,7 +20,7 @@ var getData = function(queryParam){
     if (!error && response.statusCode == 200) {
       var user = JSON.parse(body);
       for(var key in user[queryParam]){
-       if(key !== 'name') traits.push([user[queryParam][key].length, key]);
+        if(key !== 'name') traits.push([user[queryParam][key].length, key]);
       };
       traits.sort().reverse();
     }
