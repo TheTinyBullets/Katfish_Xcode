@@ -196,3 +196,13 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
+
+
+// fetch('http://localhost:3000/')
+//   .then((response) => response.text())
+//   .then((responseText) => {
+//     AlertIOS.alert([{text : responseText}]);
+//   })
+//   .catch((error) => {
+//     console.warn(error);
+//   });
