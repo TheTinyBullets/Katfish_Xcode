@@ -62,7 +62,7 @@ var ThesisProject = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
-      </TouchableHighlight>      
+      </TouchableHighlight>
       </View>
     )
   },
@@ -107,7 +107,7 @@ var ThesisProject = React.createClass({
           {this._renderMovie()}
         </TabBarIOS.Item>
       </TabBarIOS>
-    
+
 
 
     // </View>
@@ -178,7 +178,7 @@ var styles = StyleSheet.create({
   listView: {
     paddingTop: 20,
     backgroundColor: '#F5FCFF',
-  }, 
+  },
 
   buttonText: {
     fontSize: 18,
