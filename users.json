@@ -2,38 +2,38 @@
   "pond": {
     "Albrey Brown": {
       "id": "714387395",
-      "humbleness": [],
-      "competitiveness": [
+      "brave": [],
+      "driven": [
         "1036530404",
         "7725590"
       ],
-      "bravery": [
+      "a performer": [
         "1036530404",
         "7725590"
       ]
     },
     "Bianca Gandolfo": {
       "id": "1036530404",
-      "confidence": [
+      "grounded": [
         "714387395",
         "7725590"
       ],
-      "kindness": [
+      "a leader": [
         "714387395",
         "7725590"
       ],
-      "clairvoyant": [
+      "independent": [
         "714387395"
       ]
     },
     "Preston Parry": {
       "id": "7725590",
-      "knowledgable": ["714387395", "1036530404"],
-      "helpfulness": [
+      "a teacher": ["714387395", "1036530404"],
+      "analytical": [
         "714387395",
         "1036530404"
       ],
-      "positivity": [
+      "smart": [
         "1036530404"
       ]
     }
