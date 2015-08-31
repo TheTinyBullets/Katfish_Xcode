@@ -34,8 +34,13 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules
+Web/node_modules
+Web/iOS
+Web/ThesisProject.xcodeproj
+Web/ThesisProjectTests
+Mobile/node_modules
+Mobile/iOS
+Mobile/ThesisProject.xcodeproj
+Mobile/ThesisProjectTests
 api
-iOS
-ThesisProject.xcodeproj
-ThesisProjectTests
+
