@@ -5,8 +5,9 @@
  */
  'use strict';
 
- var React = require('react-native');
- var Firebase = require('firebase');
+var React = require('react-native');
+var Firebase = require('firebase');
+var styles = require('./styles').style;
 
  var {
   AppRegistry,
@@ -161,6 +162,5 @@ showAlert() {
 
 });
 
-var styles = require('./styles').style;
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
