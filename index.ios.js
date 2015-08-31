@@ -22,12 +22,7 @@
   AlertIOS
 } = React;
 
-var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
-var PAGE_SIZE = 25;
-var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
-
 var ThesisProject = React.createClass({
 
   getInitialState: function() {
@@ -59,13 +54,12 @@ var ThesisProject = React.createClass({
   _renderAlert: function () {
     return (
       <View>
-      <Text>Welcome to React Native!</Text>
+      <Text> </Text>
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
       </TouchableHighlight>
-
-      <Text style={styles.container}>Casey Sucks Dick!</Text>
+      <Text style={styles.container}> </Text>
       </View>
     )
   },
@@ -149,17 +143,15 @@ showAlert() {
     })
   }
 
-  fetch('http://192.168.1.40:3000/?714387395', obj)
-    .then((res) => res.text())
-    .then((resText) => {
-    })
-    .catch((error) => {
-      console.warn(error)
-    });
-  AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
+  // fetch('http://192.168.1.40:3000/?714387395', obj)
+  //   .then((res) => res.text())
+  //   .then((resText) => {
+  //   })
+  //   .catch((error) => {
+  //     console.warn(error)
+  //   });
+  // AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
 }
-
-
 
 });
 
