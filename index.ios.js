@@ -7,6 +7,7 @@
 
  var React = require('react-native');
  var Firebase = require('firebase');
+ var d3 = require('d3');
 
  var {
   AppRegistry,
@@ -15,7 +16,7 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View, 
+  View,
   TouchableHighlight,
   Component,
   AlertIOS
@@ -62,7 +63,7 @@ var ThesisProject = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
-      </TouchableHighlight> 
+      </TouchableHighlight>
 
       <Text style={styles.container}>Casey Sucks Dick!</Text>
       </View>
@@ -112,6 +113,7 @@ var ThesisProject = React.createClass({
   },
 
  renderLoadingView: function() {
+
    return (
      <View style={styles.container}>
      <Text>
@@ -124,7 +126,7 @@ var ThesisProject = React.createClass({
  renderMovie: function(movie) {
    return (
      <View style={styles.container}>
-     
+
      <View style={styles.rightContainer}>
      <Text style={styles.title}>{typeof(movie)}</Text>
      <Text style={styles.year}>{movie}</Text>
@@ -139,7 +141,7 @@ showAlert() {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Origin': '', 
+      'Origin': '',
       'Host': 'api.producthung.com'
     },
     body: JSON.stringify({
@@ -150,7 +152,7 @@ showAlert() {
   fetch('http://192.168.1.40:3000/?714387395', obj)
     .then((res) => res.text())
     .then((resText) => {
-    }) 
+    })
     .catch((error) => {
       console.warn(error)
     });
@@ -211,13 +213,3 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
-
-
-// fetch('http://localhost:3000/')
-//   .then((response) => response.text())
-//   .then((responseText) => {
-//     AlertIOS.alert([{text : responseText}]);
-//   })
-//   .catch((error) => {
-//     console.warn(error);
-//   });
