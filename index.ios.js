@@ -15,7 +15,7 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View,
+  View, 
   TouchableHighlight,
   Component,
   AlertIOS
@@ -25,7 +25,7 @@ var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
 var PAGE_SIZE = 25;
 var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
-var REQUEST_URL = API_URL + PARAMS;
+var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
 
 var ThesisProject = React.createClass({
 
@@ -48,7 +48,7 @@ var ThesisProject = React.createClass({
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+        dataSource: this.state.dataSource.cloneWithRows(responseData),
         loaded: true,
       });
     })
@@ -62,7 +62,9 @@ var ThesisProject = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
-      </TouchableHighlight>
+      </TouchableHighlight> 
+
+      <Text style={styles.container}>Casey Sucks Dick!</Text>
       </View>
     )
   },
@@ -81,11 +83,10 @@ var ThesisProject = React.createClass({
      return this.renderLoadingView();
    }
    return (
-      // <View style={styles.container}>
       <TabBarIOS>
         <TabBarIOS.Item
           title="Alert!"
-          systemIcon="favorites"
+          systemIcon="contacts"
           selected={this.state.selectedTab === 'Alert'}
           onPress={() => {
             this.setState({
@@ -107,11 +108,6 @@ var ThesisProject = React.createClass({
           {this._renderMovie()}
         </TabBarIOS.Item>
       </TabBarIOS>
-
-
-
-    // </View>
-
      );
   },
 
@@ -128,21 +124,40 @@ var ThesisProject = React.createClass({
  renderMovie: function(movie) {
    return (
      <View style={styles.container}>
-     <Image
-     source={{uri: movie.posters.thumbnail}}
-     style={styles.thumbnail}
-     />
+     
      <View style={styles.rightContainer}>
-     <Text style={styles.title}>{movie.title}</Text>
-     <Text style={styles.year}>{movie.year}</Text>
+     <Text style={styles.title}>{typeof(movie)}</Text>
+     <Text style={styles.year}>{movie}</Text>
      </View>
      </View>
      );
  },
 
 showAlert() {
+  var obj = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Origin': '', 
+      'Host': 'api.producthung.com'
+    },
+    body: JSON.stringify({
+      'text': 'personality trait'
+    })
+  }
+
+  fetch('http://192.168.1.40:3000/?714387395', obj)
+    .then((res) => res.text())
+    .then((resText) => {
+    }) 
+    .catch((error) => {
+      console.warn(error)
+    });
   AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
 }
+
+
 
 });
 
