@@ -10,7 +10,6 @@ counseling
 confident
 creative
 dynamic
-dreaming
 driven
 extroverted
 flirty
@@ -27,7 +26,8 @@ reliable
 thoughtful
 loyal
 sincere
-versatile?
+versatile
 understanding
 independent
 honest
+kind

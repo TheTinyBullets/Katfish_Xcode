@@ -7,6 +7,7 @@
 
  var React = require('react-native');
  var Firebase = require('firebase');
+ var d3 = require('d3');
 
  var {
   AppRegistry,
@@ -15,18 +16,13 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View, 
+  View,
   TouchableHighlight,
   Component,
   AlertIOS
 } = React;
 
-var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
-var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
-var PAGE_SIZE = 25;
-var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
-
 var ThesisProject = React.createClass({
 
   getInitialState: function() {
@@ -58,13 +54,12 @@ var ThesisProject = React.createClass({
   _renderAlert: function () {
     return (
       <View>
-      <Text>Welcome to React Native!</Text>
+      <Text> </Text>
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
-      </TouchableHighlight> 
-
-      <Text style={styles.container}>Casey Sucks Dick!</Text>
+      </TouchableHighlight>
+      <Text style={styles.container}> </Text>
       </View>
     )
   },
@@ -112,6 +107,7 @@ var ThesisProject = React.createClass({
   },
 
  renderLoadingView: function() {
+
    return (
      <View style={styles.container}>
      <Text>
@@ -124,7 +120,7 @@ var ThesisProject = React.createClass({
  renderMovie: function(movie) {
    return (
      <View style={styles.container}>
-     
+
      <View style={styles.rightContainer}>
      <Text style={styles.title}>{typeof(movie)}</Text>
      <Text style={styles.year}>{movie}</Text>
@@ -139,7 +135,7 @@ showAlert() {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Origin': '', 
+      'Origin': '',
       'Host': 'api.producthung.com'
     },
     body: JSON.stringify({
@@ -147,17 +143,15 @@ showAlert() {
     })
   }
 
-  fetch('http://192.168.1.40:3000/?714387395', obj)
-    .then((res) => res.text())
-    .then((resText) => {
-    }) 
-    .catch((error) => {
-      console.warn(error)
-    });
-  AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
+  // fetch('http://192.168.1.40:3000/?714387395', obj)
+  //   .then((res) => res.text())
+  //   .then((resText) => {
+  //   })
+  //   .catch((error) => {
+  //     console.warn(error)
+  //   });
+  // AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
 }
-
-
 
 });
 
@@ -211,13 +205,3 @@ var styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
-
-
-// fetch('http://localhost:3000/')
-//   .then((response) => response.text())
-//   .then((responseText) => {
-//     AlertIOS.alert([{text : responseText}]);
-//   })
-//   .catch((error) => {
-//     console.warn(error);
-//   });
