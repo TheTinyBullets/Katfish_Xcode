@@ -22,7 +22,11 @@ var styles = require('./styles').style;
   AlertIOS
 } = React;
 
+<<<<<<< HEAD
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
+=======
+var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json';
+>>>>>>> Merging new files
 var userID;
 var Katfish = React.createClass({
 
@@ -61,7 +65,11 @@ var Katfish = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
+<<<<<<< HEAD
       </TouchableHighlight> 
+=======
+      </TouchableHighlight>
+>>>>>>> Merging new files
 
       <Text style={styles.container}></Text>
       </View>
