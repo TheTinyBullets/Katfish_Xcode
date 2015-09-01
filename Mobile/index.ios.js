@@ -39,7 +39,7 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View, 
+  View,
   TouchableHighlight,
   Component,
   AlertIOS,
@@ -47,15 +47,15 @@
 } = React;
 
 
-class Katfish extends Component {
+var Katfish = React.createClass ({
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedTab: 'featured'
-    };
-  }
-
+  getInitialState() {
+    return (
+      this.setState = {
+        selectedTab: 'featured'
+      }
+    )
+  },
 
   render() {
     return (
@@ -85,9 +85,9 @@ class Katfish extends Component {
         <Search/>
         </TabBarIOS.Item>
       </TabBarIOS>
-  )
-  }
-}
+  )}
+});
+>>>>>>> getting data but not able to load it
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
 
