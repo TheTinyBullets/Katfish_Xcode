@@ -128,7 +128,7 @@ var Katfish = React.createClass({
      );
  },
 
- renderMovie: function(data, a, trait ,c) {
+ renderMovie: function(data, element, trait, callback) {
    var votes = data.length
    return (
      <View style={styles.container}>
