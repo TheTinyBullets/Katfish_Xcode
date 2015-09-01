@@ -5,9 +5,9 @@
  */
  'use strict';
 
- var React = require('react-native');
- var Firebase = require('firebase');
- var d3 = require('d3');
+var React = require('react-native');
+var Firebase = require('firebase');
+var styles = require('./styles').style;
 
  var {
   AppRegistry,
@@ -16,16 +16,23 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View,
+  View, 
   TouchableHighlight,
   Component,
   AlertIOS
 } = React;
 
+<<<<<<< HEAD
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
-var ThesisProject = React.createClass({
+=======
+var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json';
+>>>>>>> Merging new files
+var userID;
+var Katfish = React.createClass({
 
   getInitialState: function() {
+    //this will be replaced with a function that gets the facebook id of the user who logs in
+    userID = '714387395';
     return {
       selectedTab: 'Alert',
       dataSource: new ListView.DataSource({
@@ -44,7 +51,7 @@ var ThesisProject = React.createClass({
     .then((response) => response.json())
     .then((responseData) => {
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData),
+        dataSource: this.state.dataSource.cloneWithRows(responseData[userID]),
         loaded: true,
       });
     })
@@ -58,8 +65,13 @@ var ThesisProject = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
+<<<<<<< HEAD
+      </TouchableHighlight> 
+=======
       </TouchableHighlight>
-      <Text style={styles.container}> </Text>
+>>>>>>> Merging new files
+
+      <Text style={styles.container}></Text>
       </View>
     )
   },
@@ -107,101 +119,28 @@ var ThesisProject = React.createClass({
   },
 
  renderLoadingView: function() {
-
    return (
      <View style={styles.container}>
      <Text>
-     Loading movies...
+     Loading traits...
      </Text>
      </View>
      );
  },
 
- renderMovie: function(movie) {
+ renderMovie: function(data, element, trait, callback) {
+   var votes = data.length
    return (
      <View style={styles.container}>
-
      <View style={styles.rightContainer}>
-     <Text style={styles.title}>{typeof(movie)}</Text>
-     <Text style={styles.year}>{movie}</Text>
+     <Text style={styles.title}>{trait}</Text>
+     <Text style={styles.year}>{votes}</Text>
      </View>
      </View>
      );
  },
 
-showAlert() {
-  var obj = {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Origin': '',
-      'Host': 'api.producthung.com'
-    },
-    body: JSON.stringify({
-      'text': 'personality trait'
-    })
-  }
-
-  // fetch('http://192.168.1.40:3000/?714387395', obj)
-  //   .then((res) => res.text())
-  //   .then((resText) => {
-  //   })
-  //   .catch((error) => {
-  //     console.warn(error)
-  //   });
-  // AlertIOS.alert('Awesome Alert', 'This is my first React Native alert.', [{text: 'Thanks'}] )
-}
-
+ showAlert: function(){}
 });
 
-var styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-
-  rightContainer: {
-    flex: 1,
-    backgroundColor: "#3399FF"
-  },
-
-  title: {
-    fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  year: {
-    textAlign: 'center',
-  },
-
-  thumbnail: {
-    width: 53,
-    height: 81,
-  },
-
-  listView: {
-    paddingTop: 20,
-    backgroundColor: '#F5FCFF',
-  },
-
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center'
-  },
-
-  button: {
-    height: 44,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  }
-});
-
-AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
+AppRegistry.registerComponent('Katfish', () => Katfish);
