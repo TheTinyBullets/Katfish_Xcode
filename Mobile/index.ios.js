@@ -16,7 +16,7 @@ var styles = require('./styles').style;
   StyleSheet,
   TabBarIOS,
   Text,
-  View, 
+  View,
   TouchableHighlight,
   Component,
   AlertIOS
@@ -65,12 +65,7 @@ var Katfish = React.createClass({
       <TouchableHighlight style={styles.button}
         onPress={this.showAlert}>
         <Text style={styles.buttonText}>Go</Text>
-<<<<<<< HEAD
-      </TouchableHighlight> 
-=======
       </TouchableHighlight>
->>>>>>> Merging new files
-
       <Text style={styles.container}></Text>
       </View>
     )
