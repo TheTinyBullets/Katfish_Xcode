@@ -28,6 +28,10 @@
  var styles = require('./styles').style
  // var canvas = require('canvas');
 
+ var Featured = require('./Featured');
+ var Search = require('./Search')
+
+
  var {
   AppRegistry,
   Image,
@@ -35,122 +39,49 @@
   StyleSheet,
   TabBarIOS,
   Text,
-  View,
+  View, 
   TouchableHighlight,
   Component,
-  AlertIOS
+  AlertIOS,
+  NavigatorIOS
 } = React;
 
-var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json';
-var userID;
-var ThesisProject = React.createClass({
 
-  getInitialState: function() {
-    //this will be replaced with a function that gets the facebook id of the user who logs in
-    userID = '714387395';
-    return {
-      selectedTab: 'Alert',
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }),
-      loaded: false,
+class Katfish extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTab: 'featured'
     };
-  },
+  }
 
-  componentDidMount: function() {
-    this.fetchData();
-  },
 
-  fetchData: function() {
-    fetch(REQUEST_URL)
-    .then((response) => response.json())
-    .then((responseData) => {
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(responseData[userID]),
-        loaded: true,
-      });
-    })
-    .done();
-  },
-
-  _renderAlert: function () {
+  render() {
     return (
-      <View>
-      <Text> </Text>
-      <TouchableHighlight style={styles.button}
-        onPress={this.showAlert}>
-        <Text style={styles.buttonText}>Go</Text>
-      </TouchableHighlight>
-      <Text style={styles.container}></Text>
-      </View>
-    )
-  },
-
-  _renderMovie: function () {
-    return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderMovie}
-        style={styles.listView}/>
-      )
-  },
-
-  render: function() {
-   if (!this.state.loaded) {
-     return this.renderLoadingView();
-   }
-   return (
-      <TabBarIOS>
+      <TabBarIOS selectedTab={this.state.selectedTab}>
         <TabBarIOS.Item
-          title="Alert!"
-          systemIcon="contacts"
-          selected={this.state.selectedTab === 'Alert'}
+          selected={this.state.selectedTab === 'featured'}
+          icon={{uri:'featured'}}
           onPress={() => {
             this.setState({
-              selectedTab: 'Alert'
-            })
+              selectedTab: 'featured'
+            });
           }}>
-        {this._renderAlert()}
+        <Featured/>
         </TabBarIOS.Item>
-
         <TabBarIOS.Item
-          title="Movies"
-          systemIcon="history"
-          selected={this.state.selectedTab === 'Movies'}
+          selected={this.state.selectedTab === 'search'}
+          icon={{uri:'search'}}
           onPress={() => {
             this.setState({
-              selectedTab: 'Movies'
-            })
+              selectedTab: 'search'
+            });
           }}>
-          {this._renderMovie()}
+        <Search/>
         </TabBarIOS.Item>
       </TabBarIOS>
-     );
-  },
 
- renderLoadingView: function() {
-   return (
-     <View style={styles.container}>
-     <Text>
-     Loading traits...
-     </Text>
-     </View>
-     );
- },
 
- renderMovie: function(data, element, trait, callback) {
-   var votes = data.length
-   return (
-     <View style={styles.container}>
-     <View style={styles.rightContainer}>
-     <Text style={styles.title}>{trait}</Text>
-     <Text style={styles.year}>{votes}</Text>
-     </View>
-     </View>
-     );
- },
+AppRegistry.registerComponent('Katfish', () => Katfish);
 
- showAlert: function(){}
-});
-
-AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
