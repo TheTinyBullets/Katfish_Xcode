@@ -59,7 +59,11 @@ class Katfish extends Component {
 
   render() {
     return (
-      <TabBarIOS selectedTab={this.state.selectedTab}>
+      <TabBarIOS
+        selectedTab={this.state.selectedTab}
+        tintColor={'#FFF'}
+        barTintColor={'#6699FF'}
+        translucent={'true'}>
         <TabBarIOS.Item
           selected={this.state.selectedTab === 'featured'}
           icon={{uri:'featured'}}
@@ -81,7 +85,9 @@ class Katfish extends Component {
         <Search/>
         </TabBarIOS.Item>
       </TabBarIOS>
-
+  )
+  }
+}
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
 
