@@ -5,27 +5,28 @@
  */
 'use strict';
 
-var globals = {};
+// var globals = {};
 
-// stash globals
-if ("d3" in global) globals.d3 = global.d3;
-if ("Canvas" in global) globals.Canvas = global.Canvas;
-global.d3 = require("d3");
-global.Canvas = require("canvas");
+// // stash globals
+// if ("d3" in global) globals.d3 = global.d3;
+// if ("Canvas" in global) globals.Canvas = global.Canvas;
+// global.d3 = require("d3");
+// global.Canvas = require("canvas");
 
-require("./d3.layout.cloud");
-module.exports = d3.layout.cloud;
+// require("./d3.layout.cloud");
+// module.exports = d3.layout.cloud;
 
-// restore globals
-if ("d3" in globals) global.d3 = globals.d3;
-else delete global.d3;
-if ("Canvas" in globals) global.Canvas = globals.Canvas;
-else delete global.Canvas;
+// // restore globals
+// if ("d3" in globals) global.d3 = globals.d3;
+// else delete global.d3;
+// if ("Canvas" in globals) global.Canvas = globals.Canvas;
+// else delete global.Canvas;
 
  var React = require('react-native');
  var Firebase = require('firebase');
  var d3 = require('d3');
- var canvas = require('canvas');
+ var styles = require('./styles').style
+ // var canvas = require('canvas');
 
  var {
   AppRegistry,
@@ -42,7 +43,7 @@ else delete global.Canvas;
 
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json';
 var userID;
-var Katfish = React.createClass({
+var ThesisProject = React.createClass({
 
   getInitialState: function() {
     //this will be replaced with a function that gets the facebook id of the user who logs in
@@ -152,4 +153,4 @@ var Katfish = React.createClass({
  showAlert: function(){}
 });
 
-AppRegistry.registerComponent('Katfish', () => Katfish);
+AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
