@@ -22,11 +22,7 @@ var styles = require('./styles').style;
   AlertIOS
 } = React;
 
-<<<<<<< HEAD
-var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json'
-=======
 var REQUEST_URL = 'https://incandescent-inferno-4780.firebaseio.com/pond.json';
->>>>>>> Merging new files
 var userID;
 var Katfish = React.createClass({
 
