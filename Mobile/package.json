@@ -6,8 +6,10 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "canvas": "^1.2.8",
     "d3": "^3.5.6",
     "firebase": "^2.2.9",
+    "node-gyp": "^2.0.2",
     "react-native": "^0.9.0"
   }
 }
