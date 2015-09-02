@@ -1,14 +1,14 @@
 'use strict';
- 
+
 var React = require('react-native');
- 
+
 var {
     StyleSheet,
     View,
     Text,
     Component
    } = React;
- 
+
 var styles = StyleSheet.create({
     description: {
         fontSize: 20,
@@ -21,15 +21,16 @@ var styles = StyleSheet.create({
     }
 
 });
- 
+
 class SearchNav extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <View></View>
                 <Text style={styles.description}>Casey sucks</Text>
-            </View>             
+            </View>
         );
     }
 }
- 
+
 module.exports = SearchNav;
