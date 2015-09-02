@@ -46,7 +46,6 @@
   NavigatorIOS
 } = React;
 
-
 var Katfish = React.createClass ({
 
   getInitialState() {
@@ -87,7 +86,6 @@ var Katfish = React.createClass ({
       </TabBarIOS>
   )}
 });
->>>>>>> getting data but not able to load it
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
 
