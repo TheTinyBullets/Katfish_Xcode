@@ -31,7 +31,6 @@
  var Featured = require('./Featured');
  var Search = require('./Search')
 
-
  var {
   AppRegistry,
   Image,
@@ -83,9 +82,8 @@ var Katfish = React.createClass ({
           }}>
         <Search/>
         </TabBarIOS.Item>
-      </TabBarIOS>
-  )}
+      </TabBarIOS>);
+  }
 });
 
-AppRegistry.registerComponent('Katfish', () => Katfish);
-
+AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
