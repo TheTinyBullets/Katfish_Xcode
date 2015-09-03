@@ -6,7 +6,6 @@ var {
  StyleSheet
 } = React;
 
-
 module.exports = StyleSheet.create({
  container: {
    flex: 1,

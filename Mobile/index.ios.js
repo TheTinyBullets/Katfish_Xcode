@@ -27,7 +27,6 @@ var {
  NavigatorIOS
 } = React;
 
-
 class Katfish extends Component {
 
  constructor(props) {
@@ -70,3 +69,4 @@ class Katfish extends Component {
 }
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
+//AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
