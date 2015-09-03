@@ -31,7 +31,6 @@
  var Featured = require('./Featured');
  var Search = require('./Search')
 
-
  var {
   AppRegistry,
   Image,
@@ -45,7 +44,6 @@
   AlertIOS,
   NavigatorIOS
 } = React;
-
 
 var Katfish = React.createClass ({
 
@@ -84,10 +82,8 @@ var Katfish = React.createClass ({
           }}>
         <Search/>
         </TabBarIOS.Item>
-      </TabBarIOS>
-  )}
+      </TabBarIOS>);
+  }
 });
->>>>>>> getting data but not able to load it
 
-AppRegistry.registerComponent('Katfish', () => Katfish);
-
+AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
