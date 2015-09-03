@@ -27,7 +27,6 @@ var {
  NavigatorIOS
 } = React;
 
-
 class Katfish extends Component {
 
  constructor(props) {
