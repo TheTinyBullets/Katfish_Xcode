@@ -69,3 +69,4 @@ class Katfish extends Component {
 }
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
+//AppRegistry.registerComponent('ThesisProject', () => ThesisProject);
