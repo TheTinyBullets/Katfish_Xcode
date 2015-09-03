@@ -76,7 +76,6 @@ function added(idxSnap, prevId) {
       console.log("-------------------------------------------");
     })
 };
-
 function update(snap) {
   console.log('Update:',snap.val());
 }
