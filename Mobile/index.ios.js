@@ -16,7 +16,7 @@ var d3 = require('d3');
 var styles = require('./styles');
 var Featured = require('./Featured');
 var Search = require('./Search');
-var helpers = require('./helpers');
+var Login = require('./Login');
 var userID; // <--- A placeholder for the ID that will be captured during login
 
 /*========================================================||
@@ -54,9 +54,37 @@ class Katfish extends Component {
 ||   every time the state is changed in the app           ||
 ||========================================================*/
 
-  render() {
-    return helpers.renderOption(this);
-  }
+render() {
+  if(this.state === null) return Login(this);
+  return (
+    <TabBarIOS
+    selectedTab={this.state.selectedTab}
+    tintColor={'#FFF'}
+    barTintColor={'#48BBEC'}
+    translucent={'true'}>
+    <TabBarIOS.Item
+    selected={this.state.selectedTab === 'featured'}
+    icon={{uri:'featured'}}
+    onPress={() => {
+     this.setState({
+       selectedTab: 'featured'
+     });
+   }}>
+   <Featured/>
+   </TabBarIOS.Item>
+   <TabBarIOS.Item
+   selected={this.state.selectedTab === 'search'}
+   icon={{uri:'search'}}
+   onPress={() => {
+     this.setState({
+       selectedTab: 'search'
+     });
+   }}>
+   <Search/>
+   </TabBarIOS.Item>
+   </TabBarIOS>
+  )
+};
 }
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
