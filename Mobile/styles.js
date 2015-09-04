@@ -43,8 +43,15 @@ module.exports = StyleSheet.create({
    height: 44,
    flexDirection: 'row',
    backgroundColor: '#48BBEC',
-   alignSelf: 'stretch',
-   justifyContent: 'center'
+   justifyContent: 'center',
  },
+
+ //We need to fix this issue for the image to render in the background
+ //instead of next to the login button
+ backgroundImage: {
+    flex: 1,
+    resizeMode: 'contain',
+    transform: [{'translate' : [0, 0, -99]}]
+  },
 
 });

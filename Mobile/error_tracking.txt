@@ -1,0 +1,5 @@
+ ERROR:
+  ?Error: Invariant Violation: Element type is invalid: expected a string (for ?built-in components) or a class/function (for composite components) but got: ?undefined. Check the render method of `Katfish`.
+
+SOLUTION:
+  *
