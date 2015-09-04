@@ -32,15 +32,15 @@ getInitialState() {
       cloneWithRows: (['row 1', 'row 2'])
     }),
     loaded: false,
-    traits : false
+    traits : null
   };
 },
 
 componentDidMount(){
-  this.fetchData();                   //    <----- this happens
+  this.fetchData();
 },
 
-fetchData () {                            //    <----- this is happening
+fetchData () {
   return(
     fetch(REQUEST_URL)
     .then((response) => response.json())
@@ -54,7 +54,7 @@ fetchData () {                            //    <----- this is happening
     )
 },
 
-render() {                            //    <----- this is happening
+render() {
   if (!this.state.loaded) {
     return this.renderLoadingView();
   }
@@ -62,7 +62,7 @@ render() {                            //    <----- this is happening
   return this.renderTraits(traits);
 },
 
-renderLoadingView() {                      //    <----- this is happening
+renderLoadingView() {
  return (
    <View style={styles.container}>
    <Text>
@@ -72,7 +72,7 @@ renderLoadingView() {                      //    <----- this is happening
    );
 },
 
-renderTraits(traitData) {      //  <------ this is getting called
+renderTraits(traitData) {
  var lines = Object.keys(traitData).length;
  var traits = [];
  var countVotes = [];
