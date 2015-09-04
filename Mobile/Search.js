@@ -4,8 +4,8 @@ var React = require('react-native'),
   SearchNav = require('./SearchNav'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child("7725590"),
-  personRef.name;
+  personRef = ref.child("pond").child("7725590")
+
 
 var {
     StyleSheet,
