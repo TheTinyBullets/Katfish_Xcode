@@ -41,19 +41,18 @@ class BookList extends Component {
            <View style={styles.container}>
            <Image source={{uri: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/08e/184/157ec24.jpg'}}
                   style={{width: 300, height: 300}} />
-
            <Text> </Text>
            <TouchableHighlight style={styles.button}
              onPress={this.showAlert}>
-             <Text style={styles.buttonText}>Trait1</Text>
+           <Text style={styles.buttonText}>Baller</Text>
            </TouchableHighlight>
            <TouchableHighlight style={styles.button}
              onPress={this.showAlert}>
-             <Text style={styles.buttonText}>Trait2</Text>
+             <Text style={styles.buttonText}>Brave</Text>
            </TouchableHighlight>
            <TouchableHighlight style={styles.button}
              onPress={this.showAlert}>
-             <Text style={styles.buttonText}>Trait3</Text>
+             <Text style={styles.buttonText}>Calm</Text>
            </TouchableHighlight>
            </View>
        );
