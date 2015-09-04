@@ -4,7 +4,7 @@
 ||========================================================*/
 
 var Firebase = require('firebase'),
-  ref = new Firebase("https://receptacle.firebaseio.com/"),
+  ref = new Firebase("https://katfish.firebaseio.com/"),
   pondRef = ref.child("pond");
 
 /*========================================================||
