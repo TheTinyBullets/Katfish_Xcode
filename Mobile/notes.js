@@ -1,3 +1,8 @@
+/*========================================================||
+||   qualities in array form                              ||
+||                                                        ||
+||========================================================*/
+
 var qualities = ["baller",
 "leader",
 "performer",
@@ -30,6 +35,18 @@ var qualities = ["baller",
 "independent",
 "honest",
 "kind"];
+
+/*========================================================||
+||   albrey image                                         ||
+||                                                        ||
+||========================================================*/
+
+'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/08e/184/157ec24.jpg'
+
+/*========================================================||
+||   transforms for firebase data                         ||
+||                                                        ||
+||========================================================*/
 
 _.each(qualities,function(quality) {
   _.each(data.pond, function(person){
@@ -85,6 +102,22 @@ for (var i = 0; i < person[quality].length; i++) {
 }
   });
 });
+
+/*========================================================||
+||   word cloud repeat function                           ||
+||                                                        ||
+||========================================================*/
+
+String.prototype.repeat = function (count) {
+  if (count < 1) { return ''; }
+  var result = '', pattern = this.valueOf();
+  while (count > 1) {
+    if (count) { result += " " + pattern; }
+    count >>= 1, pattern += " " + pattern;
+  } return result + " " + pattern;
+};
+
+console.log("client".repeat(3));
 
 console.log("---");
 
