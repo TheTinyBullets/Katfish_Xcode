@@ -62,11 +62,10 @@ albreyBallerRef.update({"Test User": testcase}, function(error) {
 
 var albreyRef = pondRef.child("714387395");
 // albreyRef.on('child_added', added); //30 changes
-// albreyRef.on('value', update);
+albreyRef.on('value', updateName);
 
-
-albreyBallerRef.on('child_added', added); //two changes
-albreyBallerRef.on('value', update);
+// albreyBallerRef.on('child_added', added); //two changes
+// albreyBallerRef.on('value', update);
 
 function added(idxSnap, prevId) {
     // when an item is added to the index, fetch the data
@@ -78,6 +77,9 @@ function added(idxSnap, prevId) {
 };
 function update(snap) {
   console.log('Update:',snap.val());
+}
+function updateName(snap) {
+  console.log('Update:',snap.val().name);
 }
 
 /*========================================================||

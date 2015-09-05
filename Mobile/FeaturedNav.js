@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react-native');
+var React = require('react-native'),
+  personID = require('./PersonDB');
 
 var {
    StyleSheet,
@@ -39,7 +40,7 @@ class BookList extends Component {
    render() {
        return (
            <View style={styles.container}>
-           <Image source={{uri: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/08e/184/157ec24.jpg'}}
+           <Image source={{uri: 'http://graph.facebook.com/' + personID + '/picture?type=large'}}
                   style={{width: 300, height: 300}} />
            <Text> </Text>
            <TouchableHighlight style={styles.button}

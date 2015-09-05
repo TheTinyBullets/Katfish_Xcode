@@ -1,8 +1,9 @@
 'use strict';
 
-var React = require('react-native');
-var REQUEST_URL = 'https://katfish.firebaseio.com/pond.json';
-var Firebase = require('firebase');
+var React = require('react-native'),
+  REQUEST_URL = 'https://katfish.firebaseio.com/pond.json',
+  personID = require('./PersonDB'),
+  Firebase = require('firebase');
 
 var userID;
 
@@ -21,7 +22,7 @@ var SearchNav = React.createClass ({
 
 getInitialState() {
   //this will be replaced with a function that gets the facebook id of the user who logs in
-  userID = '7725590';
+  userID = personID;
   // albrey is '714387395';
   // preston is '7725590';
 

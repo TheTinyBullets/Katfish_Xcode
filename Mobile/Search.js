@@ -1,11 +1,21 @@
 'use strict';
 
+/*========================================================||
+||   Set up react and firebase                            ||
+||   Call up other files needed locally                   ||
+||========================================================*/
+
 var React = require('react-native'),
   SearchNav = require('./SearchNav'),
+  personID = require('./PersonDB'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child("7725590")
+  personRef = ref.child("pond").child(personID),
+  personName;
 
+personRef.on('value', function (snap) {
+  personName = snap.val().name;
+})
 
 var {
     StyleSheet,
@@ -25,7 +35,7 @@ class Search extends Component {
             <NavigatorIOS
                 style={styles.container}
                 initialRoute={{
-            title: "Albrey's Traits",
+            title: personName,
             component: SearchNav
             }}/>
         );
