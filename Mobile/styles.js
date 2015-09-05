@@ -10,7 +10,7 @@ module.exports = StyleSheet.create({
  container: {
    flex: 1,
    flexDirection: 'row',
-   justifyContent: 'center',
+   justifyContent: 'flex-start',
    alignItems: 'center',
    backgroundColor: '#F5FCFF',
  },
@@ -44,14 +44,22 @@ module.exports = StyleSheet.create({
    flexDirection: 'row',
    backgroundColor: '#48BBEC',
    justifyContent: 'center',
+   transform: [{'translate' : [0, 0, 99]}]
  },
 
  //We need to fix this issue for the image to render in the background
  //instead of next to the login button
- backgroundImage: {
+ backdrop: {
+    paddingTop: 60,
+    opacity: 0.4,
     flex: 1,
     resizeMode: 'contain',
     transform: [{'translate' : [0, 0, -99]}]
   },
+  backgroundView: {
+    height: 120,
+    width: 320,
+    backgroundColor: 'rgba(0,0,0,0)',
+  }
 
 });

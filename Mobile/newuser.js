@@ -7,7 +7,7 @@
 var newuser = {"name": "Kim Merino", "id": "2529521"}
 
 var Firebase = require('firebase'),
-  ref = new Firebase("https://receptacle.firebaseio.com/"),
+  ref = new Firebase("https://katfish.firebaseio.com/"),
   pondRef = ref.child("pond");
 
 var qualities = ["baller","leader","performer","teacher","romantic","analytical","brave","counseling","confident","creative","dynamic","driven","extroverted","flirty","mysterious","grounded","artsy","dreamer","funny","smart","careful","calm","decisive","reliable","thoughtful","loyal","sincere","versatile","understanding","independent","honest","kind"];

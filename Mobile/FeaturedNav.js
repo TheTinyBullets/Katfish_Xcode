@@ -41,7 +41,7 @@ class BookList extends Component {
        return (
            <View style={styles.container}>
            <Image source={{uri: 'http://graph.facebook.com/' + personID + '/picture?type=large'}}
-                  style={{width: 300, height: 300}} />
+                  style={{width: 200, height: 200}} />
            <Text> </Text>
            <TouchableHighlight style={styles.button}
              onPress={this.showAlert}>

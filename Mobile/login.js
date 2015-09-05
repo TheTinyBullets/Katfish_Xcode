@@ -41,20 +41,17 @@ var {
 ||========================================================*/
 module.exports = function(state){
   return (
-    <View style={[styles.container]}>
+    <View style={styles.container}>
     <Image
-    style={styles.backgroundImage}
-    source={require('./bgImage.png')}
-    />
-    <Text style={styles.welcome}></Text>
+    style={styles.backdrop}
+    source={require('./bgImage.png')} />
+        <Text style={styles.welcome}></Text>
     <TouchableOpacity
     onPress={handlePress.bind(state)}
-    dataSource={state}
-    >
-    <Image
-    source={require('./fblogin.png')}
-    style={styles.button}
-    />
+    dataSource={state}>
+        <Image
+        source={require('./fblogin.png')}
+        style={styles.button}/>
     </TouchableOpacity>
     </View>
     )
