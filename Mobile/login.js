@@ -15,7 +15,6 @@ var d3 = require('d3');
 var styles = require('./styles');
 var Featured = require('./Featured');
 var Search = require('./Search');
-var Login = require('./Login');
 var userID; // <--- A placeholder for the ID that will be captured during login
 
 /*========================================================||
