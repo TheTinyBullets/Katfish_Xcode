@@ -5,7 +5,6 @@
 ||========================================================*/
 
 var React = require('react-native'),
-  FeatNav = require('./FeaturedNav'),
   personID = require('./PersonDB'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
@@ -15,6 +14,15 @@ var React = require('react-native'),
 personRef.on('value', function (snap) {
   personName = snap.val().name;
 })
+
+
+/*========================================================||
+||   Locally required sources                             ||
+||========================================================*/
+
+var FeatNav = require('./FeaturedNav');
+var styles = require('./styles');
+
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
