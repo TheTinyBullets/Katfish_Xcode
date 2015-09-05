@@ -7,6 +7,7 @@
 var React = require('react-native');
 var REQUEST_URL = 'https://katfish.firebaseio.com/pond.json';
 var Firebase = require('firebase');
+var personID = require('./PersonDB');
 
 /*========================================================||
 ||   Locally defined variables                            ||

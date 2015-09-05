@@ -5,7 +5,8 @@
 ||========================================================*/
 
 var React = require('react-native');
-var Firebase = require('firebase'),
+var Firebase = require('firebase');
+var personID = require('./PersonDB'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
   personRef = ref.child("pond").child(personID),
   personName;
