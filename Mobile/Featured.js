@@ -1,5 +1,9 @@
 'use strict';
 
+/*========================================================||
+||   External required sources                            ||
+||========================================================*/
+
 var React = require('react-native'),
   FeatNav = require('./FeaturedNav'),
   personID = require('./PersonDB'),
@@ -12,23 +16,20 @@ personRef.on('value', function (snap) {
   personName = snap.val().name;
 })
 
+/*========================================================||
+||   React native variables, used like HTML tags          ||
+||========================================================*/
+
 var {
-    StyleSheet,
     NavigatorIOS,
     Component
    } = React;
-
-var styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-});
 
 class Featured extends Component {
     render() {
         return (
             <NavigatorIOS
-                style={styles.container}
+                style={styles.featContainer}
                 initialRoute={{
             title: "Katfish Me!",
             component: FeatNav

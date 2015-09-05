@@ -10,14 +10,16 @@ var Firebase = require('firebase');
 var d3 = require('d3');
 
 /*========================================================||
-||   These are the other views that need to be rendered   ||
+||   Locally required files                               ||
 ||========================================================*/
 
 var styles = require('./styles');
 var Featured = require('./Featured');
 var Search = require('./Search');
-var Login = require('./login');
-var userID; // <--- A placeholder for the ID that will be captured during login
+var Login = require('./Login');
+var userID = '7725590'; // <--- A placeholder for the ID that will be captured during login
+  // albrey is '714387395';
+  // preston is '7725590';
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
@@ -27,7 +29,6 @@ var {
  AppRegistry,
  Image,
  ListView,
- StyleSheet,
  TabBarIOS,
  Text,
  View,

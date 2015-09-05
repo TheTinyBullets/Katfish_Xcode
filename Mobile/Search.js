@@ -1,39 +1,41 @@
 'use strict';
 
 /*========================================================||
-||   Set up react and firebase                            ||
-||   Call up other files needed locally                   ||
+||   External required sources                            ||
 ||========================================================*/
 
-var React = require('react-native'),
-  SearchNav = require('./SearchNav'),
-  personID = require('./PersonDB'),
-  Firebase = require('firebase'),
+var React = require('react-native');
+var Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
   personRef = ref.child("pond").child(personID),
   personName;
 
-personRef.on('value', function (snap) {
-  personName = snap.val().name;
-})
+/*========================================================||
+||   Locally required sources                             ||
+||========================================================*/
+
+var styles = require('./styles')
+var SearchNav = require('./SearchNav');
+
+/*========================================================||
+||   React native variables, used like HTML tags          ||
+||========================================================*/
 
 var {
-    StyleSheet,
     NavigatorIOS,
     Component
    } = React;
 
-var styles = StyleSheet.create({
-    container: {
-        flex: 1
-    }
-});
+
+/*========================================================||
+||   Adds the Search view on top of Katfish               ||
+||========================================================*/
 
 class Search extends Component {
     render() {
         return (
             <NavigatorIOS
-                style={styles.container}
+                style={styles.searchContainer}
                 initialRoute={{
             title: personName,
             component: SearchNav
