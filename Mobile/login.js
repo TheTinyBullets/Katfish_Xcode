@@ -9,7 +9,7 @@ var Firebase = require('firebase');
 var d3 = require('d3');
 
 /*========================================================||
-||   These are the other views that need to be rendered   ||
+||   Locally required files                               ||
 ||========================================================*/
 
 var styles = require('./styles');
@@ -25,7 +25,6 @@ var {
  AppRegistry,
  Image,
  ListView,
- StyleSheet,
  TabBarIOS,
  Text,
  View,
@@ -57,11 +56,14 @@ module.exports = function(state){
     )
 }
 
+/*========================================================||
+||   This handles the click of the login button           ||
+||========================================================*/
+
 var handlePress = function() {
     //this will be filled with the logic to get the Facebook login
     //included should be the FB userID
     //main.userID = '12345678'
-    console.log('line 112, Login.js', this)
     this.setState ({
      selectedTab: 'featured'
    })

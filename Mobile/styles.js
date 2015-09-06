@@ -7,6 +7,11 @@ var {
 } = React;
 
 module.exports = StyleSheet.create({
+
+/*=================================||
+||  This section for index.ios.js  ||
+||=================================*/
+
  container: {
    flex: 1,
    flexDirection: 'row',
@@ -61,5 +66,51 @@ module.exports = StyleSheet.create({
     width: 320,
     backgroundColor: 'rgba(0,0,0,0)',
   }
+ backgroundImage: {
+  flex: 1,
+  resizeMode: 'contain',
+  transform: [{'translate' : [0, 0, -99]}]
+},
 
+/*=================================||
+||  This section for featuredNav   ||
+||=================================*/
+
+featNavDescription: {
+ fontSize: 20,
+ backgroundColor: 'white'
+},
+featNavContainer: {
+ flex: 1,
+ justifyContent: 'center',
+ alignItems: 'center'
+},
+featNavButtonText: {
+ fontSize: 18,
+ color: 'white',
+ alignSelf: 'center'
+},
+featNavButton: {
+ height: 44,
+ flexDirection: 'column',
+ backgroundColor: '#48BBEC',
+ alignSelf: 'stretch',
+ justifyContent: 'center'
+},
+
+/*=================================||
+||    This section for search      ||
+||=================================*/
+
+searchContainer: {
+  flex: 1
+},
+
+/*=================================||
+||    This section for featured    ||
+||=================================*/
+
+featContainer: {
+  flex: 1
+}
 });

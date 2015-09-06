@@ -3,3 +3,23 @@
 
 SOLUTION:
   * none yet
+
+
+
+//How to create the downloadable app for the test device\\
+
+https://developer.apple.com/library/ios/recipes/xcode_help-scheme_editor/Articles/SchemeManage.html
+
+Choose Product > Scheme > Manage Schemes.
+Choose Manage Schemes from the scheme toolbar menu.
+Click Manage Schemes at the bottom of the scheme editing sheet.
+
+With the target selected(your app name)
+select product >> select archive
+when the archive manager appears >> select your app name
+on the right select >> Export
+pick the middle option from the new menu ...Ad Hoc deployment
+choose your developer account
+seelct your destination and name it
+
+\\end//
