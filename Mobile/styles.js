@@ -109,6 +109,18 @@ searchContainer: {
 /*=================================||
 ||    This section for featured    ||
 ||=================================*/
+ backdrop: {
+    paddingTop: 60,
+    opacity: 0.4,
+    flex: 1,
+    resizeMode: 'contain',
+    transform: [{'translate' : [0, 0, -99]}]
+  },
+  backgroundView: {
+    height: 120,
+    width: 320,
+    backgroundColor: 'rgba(0,0,0,0)',
+  }
 
 featContainer: {
   flex: 1
