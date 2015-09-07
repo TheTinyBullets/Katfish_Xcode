@@ -4,17 +4,17 @@
 ||   External required sources                            ||
 ||========================================================*/
 
-var React = require('react-native');
-var REQUEST_URL = 'https://katfish.firebaseio.com/pond.json';
-var Firebase = require('firebase');
-var personID = require('./PersonDB');
+var React = require('react-native'),
+  REQUEST_URL = 'https://katfish.firebaseio.com/pond.json',
+  Firebase = require('firebase'),
+  person = require('./PersonDB');
 
 /*========================================================||
 ||   Locally defined variables                            ||
 ||========================================================*/
 
-var userID;
-var styles = require('./styles');
+var styles = require('./styles'),
+  userID;
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
@@ -35,9 +35,7 @@ var SearchNav = React.createClass ({
 
   getInitialState() {
   //this will be replaced with a function that gets the facebook id of the user who logs in
-  userID = personID;
-  // albrey is '714387395';
-  // preston is '7725590';
+  userID = person.id;
 
   return {
     selectedTab: 'featured',
@@ -79,20 +77,19 @@ render() {
 renderLoadingView() {
  return (
    <View style={styles.container}>
-   <Text>
-   Loading traits...
-   </Text>
+     <Text> Loading traits... </Text>
    </View>
-   );
+  );
 },
 
 renderTraits(traitData) {
- var lines = Object.keys(traitData).length;
- var traits = [];
- var countVotes = [];
- var vote;
+ var lines = Object.keys(traitData).length,
+   traits = [],
+   countVotes = [],
+   vote,
+   count;
  for(var key in traitData){
-  var count = -1;
+    count = -1;
   for (var vote in traitData[key]) {
     count++
   }

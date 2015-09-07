@@ -112,12 +112,10 @@ searchContainer: {
 
 featContainer: {
   flex: 1
-// },
-// scrollView: {
-//   backgroundColor: '#6A85B1',
-//   height: 300,
-// },
-// horizontalScrollView: {
-//   height: 120,
+},
+scrollView: {
+  marginTop: -16,
+  height: 200,
+  width: 400
 }
 });

@@ -4,19 +4,16 @@
 ||   External required sources                            ||
 ||========================================================*/
 
-var React = require('react-native');
-var Firebase = require('firebase');
-var personID = require('./PersonDB'),
-  ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child(personID),
-  personName;
+var React = require('react-native'),
+  Firebase = require('firebase'),
+  person = require('./PersonDB');
 
 /*========================================================||
 ||   Locally required sources                             ||
 ||========================================================*/
 
-var styles = require('./styles')
-var SearchNav = require('./SearchNav');
+var styles = require('./styles'),
+  SearchNav = require('./SearchNav');
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
@@ -38,7 +35,7 @@ class Search extends Component {
             <NavigatorIOS
                 style={styles.searchContainer}
                 initialRoute={{
-            title: personName,
+            title: person.name,
             component: SearchNav
             }}/>
         );

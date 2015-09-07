@@ -5,15 +5,7 @@
 ||========================================================*/
 
 var React = require('react-native'),
-  personID = require('./PersonDB'),
-  Firebase = require('firebase'),
-  ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child(personID),
-  personName;
-
-personRef.on('value', function (snap) {
-  personName = snap.val().name;
-})
+  person = require('./PersonDB');
 
 
 /*========================================================||

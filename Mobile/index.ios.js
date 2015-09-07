@@ -17,7 +17,7 @@ var styles = require('./styles');
 var Featured = require('./Featured');
 var Search = require('./Search');
 var Login = require('./login');
-var userID = '7725590'; // <--- A placeholder for the ID that will be captured during login
+var userID = '714387395'; // <--- A placeholder for the ID that will be captured during login
   // albrey is '714387395';
   // preston is '7725590';
 
@@ -47,7 +47,8 @@ class Katfish extends Component {
 
  constructor(props) {
    super(props);
-   this.state = null;
+   // this.state = null; //on
+   this.state = {selectedTab: 'featured'} //off
  }
 
 /*========================================================||
@@ -56,7 +57,7 @@ class Katfish extends Component {
 ||========================================================*/
 
 render() {
-  if(this.state === null) return Login(this);
+  // if(this.state === null) return Login(this); //on
   return (
     <TabBarIOS
     selectedTab={this.state.selectedTab}
