@@ -4,7 +4,7 @@
 ||========================================================*/
 
 /* assumed input from FB: {Kim Merino, 2529521} */
-var newuser = {"name": "Kim Merino", "id": "2529521"}
+var newuser = {"name": "Casey Patterson", "id": "100010275515528"}
 
 var Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),

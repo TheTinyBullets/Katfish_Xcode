@@ -2,7 +2,7 @@
 
 var React = require('react-native'),
 
-  personID = "10400802";
+  personID = "100010275515528";
 
 module.exports = personID;
 
@@ -13,3 +13,4 @@ module.exports = personID;
   // 10102692890098514;
   // bianca is '1036530404';
   // kim is '2529521';
+  // casey is "100010275515528";
