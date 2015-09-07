@@ -26,7 +26,7 @@ var {
 class Featured extends Component {
  render() {
    return (
-     <View style={styles.container}>
+     <View style={styles.featNavCdcsontainer}>
      <Image source={{uri: 'http://graph.facebook.com/' + personID + '/picture?type=large'}}
      style={{width: 300, height: 300}} />
      <Text> </Text>

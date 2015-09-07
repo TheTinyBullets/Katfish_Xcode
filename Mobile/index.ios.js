@@ -16,7 +16,7 @@ var d3 = require('d3');
 var styles = require('./styles');
 var Featured = require('./Featured');
 var Search = require('./Search');
-var Login = require('./Login');
+var Login = require('./login');
 var userID = '7725590'; // <--- A placeholder for the ID that will be captured during login
   // albrey is '714387395';
   // preston is '7725590';
