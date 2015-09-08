@@ -7,11 +7,11 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.reactjs.native.katfish.$(Katfish:rfc1034identifier)</string>
+	<string>org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(Katfish)</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -22,13 +22,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -43,20 +36,25 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-  
-  <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb491908800986339</string>
-      </array>
-    </dict>
-  </array>
-  <key>FacebookAppID</key>
-  <string>491908800986339</string>
-  <key>FacebookDisplayName</key>
-  <string>Katfish</string>
-  
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+  </dict>
+     <key>CFBundleURLTypes</key>
+     <array>
+     <dict>
+     <key>CFBundleURLSchemes</key>
+     <array>
+     <string>fb491908800986339</string>
+     </array>
+     </dict>
+     </array>
+     <key>FacebookAppID</key>
+     <string>491908800986339</string>
+     <key>FacebookDisplayName</key>
+     <string>Katfish</string>
 </dict>
 </plist>

@@ -1,93 +1,105 @@
 
 'use strict';
 
-/*========================================================||
-||   External required sources                            ||
-||========================================================*/
-
 var React = require('react-native');
-var Firebase = require('firebase');
-var d3 = require('d3');
+//var FB = require('fb');
+var FBSDKLogin = require('react-native-fbsdklogin');
+var FBSDKCore = require('react-native-fbsdkcore');
+var Login = require('./JS/Login')
 
-/*========================================================||
-||   Locally required files                               ||
-||========================================================*/
+//**********************From this point until the next is broken core login
 
-var styles = require('./styles');
-var Featured = require('./Featured');
-var Search = require('./Search');
-var Login = require('./login');
-var userID = '714387395'; // <--- A placeholder for the ID that will be captured during login
-  // albrey is '714387395';
-  // preston is '7725590';
+// var params = {
+//   userId: '123456789'
+// }
+// var token = "CAAGZCY3FYPOMBAEsXn8A7L1ZC9jm7ZAR5FwJ4LIhQjeyQuCme…JM9Di9Q4CnZCDZCxPbco14sFnkkpq1fjQuLEPB5o11TGBVEZD"
+// var ver = 'v2.4'
+//Create a graph request asking for friends with a callback to handle the response.
+//FBSDKGraphRequestManager.batchRequests([profileRequest], function() {}, 60);
+// <----------- insert the function here fool
+// Start the graph request.
+//
 
-/*========================================================||
-||   React native variables, used like HTML tags          ||
-||========================================================*/
+// console.log(FBSDKGraphRequest)
+
+//**********************************This point
+
 
 var {
- AppRegistry,
- Image,
- ListView,
- TabBarIOS,
- Text,
- View,
- TouchableHighlight,
- Component,
- AlertIOS,
- NavigatorIOS,
- TouchableOpacity
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TabBarIOS
 } = React;
 
-/*========================================================||
-||   Creates the Katfish app on top of React Native       ||
-||========================================================*/
+var {
+  FBSDKLoginButton,
+} = FBSDKLogin;
 
-class Katfish extends Component {
+var {
+  FBSDKGraphRequest,
+  FBSDKGraphRequestManager,
+  FBSDKAccessToken
+} = FBSDKCore;
 
- constructor(props) {
-   super(props);
-   // this.state = null; //on
-   this.state = {selectedTab: 'featured'} //off
- }
+//var Feed = require('./JS/Feed');
+var Featured = require('./JS/Featured');
+var Search = require('./JS/Search');
 
-/*========================================================||
-||   The render function is native and will be called     ||
-||   every time the state is changed in the app           ||
-||========================================================*/
+var fetchFriendsRequest = new FBSDKGraphRequest((error, result, params, token, ) => {
+  if (error) {
+    alert('Error making request.');
+  } else {
+    console.log('result from the graph req',result)
+  }
+}, '/me/friends', {}, 1234567890, 'v2.4', 'GET');
+//fetchFriendsRequest.start();
 
-render() {
-  // if(this.state === null) return Login(this); //on
-  return (
-    <TabBarIOS
-    selectedTab={this.state.selectedTab}
-    tintColor={'#FFF'}
-    barTintColor={'#48BBEC'}
-    translucent={'true'}>
-    <TabBarIOS.Item
-    selected={this.state.selectedTab === 'featured'}
-    icon={{uri:'featured'}}
-    onPress={() => {
-     this.setState({
-       selectedTab: 'featured'
-     });
-   }}>
-   <Featured/>
-   </TabBarIOS.Item>
-   <TabBarIOS.Item
-   selected={this.state.selectedTab === 'search'}
-   icon={{uri:'search'}}
-   onPress={() => {
-     this.setState({
-       selectedTab: 'search'
-     });
-   }}>
-   <Search/>
-   </TabBarIOS.Item>
-   </TabBarIOS>
-  )
-};
-}
+
+var Katfish = React.createClass({
+
+  render: function() {
+    window.Katfish = this;
+    if(!this.tokenString){
+      this.getToken();
+      return (
+        <Image
+        source={{uri: 'http://q8italk.com/wp-content/uploads/2014/10/Green-Starry-iPhone-6-plus-wallpaper-ilikewallpaper_com.png'}}
+        style={styles.loginImage}>
+        <Login
+        style={styles.loginContainer}/>
+        </Image>
+        );
+    }
+    else{
+      return require('./JS/TabBar')();
+    }
+  },
+  getToken: function(){
+    FBSDKAccessToken.getCurrentAccessToken((token) => {
+      if (token) {
+        // A non-null token indicates that the user is currently logged in.
+        console.log('TOKEN: ', token);
+        this.tokenString = token.tokenString;
+        this.userID = token.userID;
+      }else console.log('there is no token friend')
+    });
+    //this.getImage();
+  },
+
+  // getImage: function(){
+  //   FB.api('/me/picture', 'get', function(response){
+  //     if (!response || response.error) {
+  //       alert('Error occured');
+  //     } else {
+  //       console.log(response);
+  //     }
+  //   })
+  // }
+});
+
+var styles = require('./JS/styles.js');
 
 AppRegistry.registerComponent('Katfish', () => Katfish);
-module.exports.userID = userID;
