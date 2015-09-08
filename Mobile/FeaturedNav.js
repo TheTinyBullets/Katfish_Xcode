@@ -25,20 +25,31 @@ var {
 } = React;
 
 /*========================================================||
-||   Adds the FeaturedNav view on top of Katfish          ||
+||   Each list item and quality (eventually fetch)        ||
 ||========================================================*/
 
 var indents = [],
   qualities = ["baller","leader","performer","teacher","romantic","analytical","brave","counseling","confident","creative","dynamic","driven","extroverted","flirty","mysterious","grounded","artsy","dreamer","funny","smart","careful","calm","decisive","reliable","thoughtful","loyal","sincere","versatile","understanding","independent","honest","kind"]
+
+/*========================================================||
+||   This allows each button to hit the specific quality  ||
+||   Use null to remove items or true to add items        ||
+||   Eventually replace "Test User" with the ID needed.   ||
+||========================================================*/
+
 for (var i = 0; i < qualities.length; i++) {
-  indents.push(
-    <TouchableHighlight
-        style={styles.featNavButton}
-        onPress={this}>
-      <Text style={styles.featNavButtonText}>{qualities[i]}</Text>
-    </TouchableHighlight>
-  );
+  (function runIt(variable){
+    indents.push(
+      <TouchableHighlight style={styles.featNavButton}
+      onPress={()=>{personRef.child(variable).update({"Test User":null})}}>
+        <Text style={styles.featNavButtonText}>{qualities[i]}</Text>
+      </TouchableHighlight>);
+  })(qualities[i])
 }
+
+/*========================================================||
+||   This calls down specific images and makes the list   ||
+||========================================================*/
 
 class Featured extends Component {
   render() {
