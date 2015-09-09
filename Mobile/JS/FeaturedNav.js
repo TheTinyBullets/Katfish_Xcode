@@ -37,15 +37,6 @@ var indents = [],
 ||   Eventually replace "Test User" with the ID needed.   ||
 ||========================================================*/
 
-for (var i = 0; i < qualities.length; i++) {
-  (function runIt(variable){
-    indents.push(
-      <TouchableHighlight style={styles.featNavButton}
-      onPress={()=>{personRef.child(variable).update({"Test User":null})}}>
-        <Text style={styles.featNavButtonText}>{qualities[i]}</Text>
-      </TouchableHighlight>);
-  })(qualities[i])
-}
 
 /*========================================================||
 ||   This calls down specific images and makes the list   ||
@@ -53,6 +44,7 @@ for (var i = 0; i < qualities.length; i++) {
 
 class Featured extends Component {
   render() {
+    this.getTraits();
     return (
       <View style={styles.featNavContainer}>
       <Image source={{uri: 'http://graph.facebook.com/' + person.id + '/picture?type=large'}}
@@ -67,6 +59,19 @@ class Featured extends Component {
       </ScrollView>
       </View>
     );
+  }
+  getTraits(){
+    for (var i = 0; i < qualities.length; i++) {
+      var vote = {};
+      vote[window.Katfish.userID] = true;
+      (function runIt(variable){
+        indents.push(
+          <TouchableHighlight style={styles.featNavButton}
+          onPress={()=>{personRef.child(variable).update(vote)}}>
+            <Text style={styles.featNavButtonText}>{qualities[i]}</Text>
+          </TouchableHighlight>);
+      })(qualities[i])
+    }
   }
 }
 
