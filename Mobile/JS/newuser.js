@@ -4,7 +4,7 @@
 ||========================================================*/
 
 /* assumed input from FB: {Kim Merino, 2529521} */
-var newuser = {"name": "Casey Patterson", "id": "100010275515528"}
+var newuser = {"name": "Casey Patterson", "id": "119553731730477"}
 
 var Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
@@ -21,7 +21,6 @@ pondRef.on("value", function (snapshot) {
   //kim test
   console.log(newuser.name +" is a user: "+ Boolean(Object.keys(index).indexOf(newuser.id) >= 0));
   console.log("---------------------------");
-
 });
 
 var newuserRef = pondRef.child(newuser.id);

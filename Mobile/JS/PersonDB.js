@@ -14,7 +14,7 @@ var React = require('react-native'),
 ||   Setting for individual id (table below)              ||
 ||========================================================*/
 
-  person.id = '10102692890098514';
+  person.id = '119553731730477';
 
 /*========================================================||
 ||   Accessing the database through firebase functions    ||

@@ -35,10 +35,6 @@ var indents = [],
 ||   This allows each button to hit the specific quality  ||
 ||   Use null to remove items or true to add items        ||
 ||   Eventually replace "Test User" with the ID needed.   ||
-||========================================================*/
-
-
-/*========================================================||
 ||   This calls down specific images and makes the list   ||
 ||========================================================*/
 
