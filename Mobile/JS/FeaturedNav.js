@@ -59,7 +59,7 @@ class Featured extends Component {
   getTraits(){
     for (var i = 0; i < qualities.length; i++) {
       var vote = {};
-      vote[window.Katfish.userID] = true;
+      vote[person.id] = true;
       (function runIt(variable){
         indents.push(
           <TouchableHighlight style={styles.featNavButton}
