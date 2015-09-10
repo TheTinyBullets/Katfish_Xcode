@@ -5,7 +5,12 @@ var React = require('react-native');
 //var FB = require('fb');
 var FBSDKLogin = require('react-native-fbsdklogin');
 var FBSDKCore = require('react-native-fbsdkcore');
-var Login = require('./JS/Login')
+var Login = require('./js/Login');
+var person = require('./js/PersonDB');
+var Featured = require('./js/Featured');
+var Search = require('./js/Search');
+this.tokenString;
+
 
 //**********************From this point until the next is broken core login
 
@@ -44,29 +49,38 @@ var {
   FBSDKAccessToken
 } = FBSDKCore;
 
-//var Feed = require('./JS/Feed');
-var Featured = require('./JS/Featured');
-var Search = require('./JS/Search');
+var fetchMyId = new FBSDKGraphRequest((error, result) => {
+ if (error) {
+   console.log('Error making request.', error);
+ } else {
+  console.log('FB id received')
+ }
+}, '/me', {}, this.tokenString, "v2.4", "GET");
 
-var fetchFriendsRequest = new FBSDKGraphRequest((error, result, params, token, ) => {
-  if (error) {
-    alert('Error making request.');
-  } else {
-    console.log('result from the graph req',result)
-  }
-}, '/me/friends', {}, 1234567890, 'v2.4', 'GET');
+var fetchFriendsRequest = new FBSDKGraphRequest((error, result) => {
+ if (error) {
+   console.log('Error making request.', error);
+ } else {
+   require('./js/PersonDB').fish(result.data);
+ }
+}, '/me/friends', {}, this.tokenString, "v2.4", "GET");
 //fetchFriendsRequest.start();
 
+FBSDKGraphRequestManager.batchRequests([fetchFriendsRequest, fetchMyId], function (error) {
+ if (error) {
+   console.log("ERROR", error);
+ }
+}, 60);
 
 var Katfish = React.createClass({
 
   render: function() {
     window.Katfish = this;
-    if(!this.tokenString){
+    if(!this.state){
       this.getToken();
       return (
         <Image
-        source={{uri: 'http://q8italk.com/wp-content/uploads/2014/10/Green-Starry-iPhone-6-plus-wallpaper-ilikewallpaper_com.png'}}
+        source={{uri: 'http://chrissalam.com/bash/sailing.png'}}
         style={styles.loginImage}>
         <Login
         style={styles.loginContainer}/>
@@ -74,7 +88,7 @@ var Katfish = React.createClass({
         );
     }
     else{
-      return require('./JS/TabBar')();
+      return require('./js/TabBar')();
     }
   },
   getToken: function(){
@@ -84,22 +98,11 @@ var Katfish = React.createClass({
         console.log('TOKEN: ', token);
         this.tokenString = token.tokenString;
         this.userID = token.userID;
-      }else console.log('there is no token friend')
+      } else console.log('there is no token')
     });
-    //this.getImage();
   },
-
-  // getImage: function(){
-  //   FB.api('/me/picture', 'get', function(response){
-  //     if (!response || response.error) {
-  //       alert('Error occured');
-  //     } else {
-  //       console.log(response);
-  //     }
-  //   })
-  // }
 });
 
-var styles = require('./JS/styles.js');
+var styles = require('./js/styles.js');
 
 AppRegistry.registerComponent('Katfish', () => Katfish);

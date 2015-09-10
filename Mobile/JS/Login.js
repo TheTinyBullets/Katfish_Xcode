@@ -1,39 +1,44 @@
-
-'use strict';
-
 var React = require('react-native');
 var {
+  AppRegistry,
   StyleSheet,
+  Text,
   View,
+  TouchableHighlight,
+  Image
 } = React;
 
-var FBSDKLogin = require('react-native-fbsdklogin');
-var {
-  FBSDKLoginButton,
-} = FBSDKLogin;
+var FacebookLoginManager = require('NativeModules').FacebookLoginManager;
 
 var Login = React.createClass({
-  render: function(a, b, c, d) {
-    console.log(a)
+
+  getInitialState() {
+    return {
+      result: null
+    }
+  },
+
+  login() {
+    FacebookLoginManager.newSession((error, info) => {
+      if (error) {
+        this.setState({result: error});
+      } else {
+        this.setState({result: info})
+      }
+    });
+  },
+
+  render() {
+    if(!this.state.result){
+      window.Katfish.setState({selectedTab : 'featured'});
+    }
     return (
       <View style={this.props.style}>
-        <FBSDKLoginButton
-          style={styles.loginButton}
-          onLoginFinished={(error, result) => {
-            window.Katfish.setState({selectedTab : 'featured'})
-            if (error) {
-              console.log('Error logging in.');
-            } else {
-              if (result.isCanceled) {
-                console.log('Login cancelled.');
-              } else {
-                console.log('Logged in.');
-              }
-            }
-          }}
-          onLogoutFinished={() => console.log('Logged out.')}
-          readPermissions={['public_profile','user_friends','email']}
-          publishPermissions={[]}/>
+        <TouchableHighlight onPress={this.login}>
+          <Image
+            source={require('../Images/fblogin.png')}
+            style={styles.loginButton}/>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -41,4 +46,5 @@ var Login = React.createClass({
 
 var styles = StyleSheet.create(require('./styles.js'));
 
+AppRegistry.registerComponent('Login', () => Login);
 module.exports = Login;
