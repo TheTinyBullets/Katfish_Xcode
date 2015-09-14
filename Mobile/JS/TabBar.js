@@ -1,6 +1,8 @@
 var React = require('react-native');
 var Featured = require('./Featured');
 var Search = require('./Search');
+var More = require('./More')
+
 var {
   TabBarIOS,
 }=React
@@ -31,6 +33,16 @@ module.exports = function (){
       });
     }}>
     <Search/>
+    </TabBarIOS.Item>
+    <TabBarIOS.Item
+      selected={window.Katfish.state.selectedTab === 'more'}
+      icon={{uri:'more'}}
+      onPress={() => {
+      window.Katfish.setState({
+       selectedTab: 'more'
+      });
+    }}>
+    <More/>
     </TabBarIOS.Item>
    </TabBarIOS>
    )

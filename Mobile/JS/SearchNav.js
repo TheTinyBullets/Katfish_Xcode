@@ -38,7 +38,7 @@ var SearchNav = React.createClass ({
   userID = person.id;
 
   return {
-    selectedTab: 'featured',
+    selectedTab: 'search',
     dataSource: new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2,
       cloneWithRows: (['row 1', 'row 2'])
