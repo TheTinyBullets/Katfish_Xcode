@@ -7,12 +7,11 @@
 var React = require('react-native');
 var FBSDKLogin = require('react-native-fbsdklogin');
 var FBSDKCore = require('react-native-fbsdkcore'),
-REQUEST_URL = 'https://katfish.firebaseio.com/pond.json',
 person = require('./PersonDB'),
 Login = require('./Login'),
 Firebase = require('firebase'),
 ref = new Firebase("https://katfish.firebaseio.com/"),
-personRef = ref.child("pond").child('100010275515528');
+personRef;
 
 /*========================================================||
 ||   Locally defined variables                            ||
@@ -63,17 +62,22 @@ renderLoadingView() {
     );
 },
 renderTraits(list){
-  console.log(list)
+  // console.log(list)
   return (
     <View style={styles.moreNavContainer}>
     <Image source={{uri: 'http://graph.facebook.com/' + window.Katfish.userID + '/picture?type=large'}}
     style={{marginTop: 80, width: 200, height: 200, borderRadius: 100}} />
+      <TouchableHighlight onPress={this.clickHandler}>
+        <Image
+          // source={require('../Images/fblogout.png')}
+          style={styles.loginButton}/>
+      </TouchableHighlight>
       <View>
-        <Text numberOfLines={list.length} style={styles.title}>{list}</Text>
+        <Text numberOfLines={list.length} style={styles.title}>My friends say I am {list.slice(0,list.length-1).join(", ")} and {list.slice(list.length-1)}</Text>
       </View>
       <TouchableHighlight onPress={this.clickHandler}>
         <Image
-          source={require('../Images/fblogout.png')}
+          // source={require('../Images/fblogout.png')}
           style={styles.loginButton}/>
       </TouchableHighlight>
     </View>
@@ -82,8 +86,9 @@ renderTraits(list){
 fireCall(){
   var that = this;
   var result = [[0,0]];
-  personRef.on("value", function(snapshot) {
-    var temp = snapshot.val();
+  ref.on("value", function(snapshot) {
+    var temp = snapshot.val().pond[window.Katfish.userID];
+    console.log(temp);
     for(var key in temp){
       if(key !== 'name' && key !== 'id'){
         if(result.length < 1) {
