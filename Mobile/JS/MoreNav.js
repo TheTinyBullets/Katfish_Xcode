@@ -4,20 +4,21 @@
 ||   External required sources                            ||
 ||========================================================*/
 
-var React = require('react-native');
-var FBSDKLogin = require('react-native-fbsdklogin');
-var FBSDKCore = require('react-native-fbsdkcore'),
-person = require('./PersonDB'),
-Login = require('./Login'),
-Firebase = require('firebase'),
-ref = new Firebase("https://katfish.firebaseio.com/"),
-personRef;
+var React = require('react-native'),
+  FBSDKLogin = require('react-native-fbsdklogin'),
+  FBSDKCore = require('react-native-fbsdkcore'),
+  person = require('./PersonDB'),
+  Login = require('./Login'),
+  _ = require('underscore'),
+  Firebase = require('firebase'),
+  ref = new Firebase("https://katfish.firebaseio.com/"),
 
 /*========================================================||
 ||   Locally defined variables                            ||
 ||========================================================*/
-var _ = require('underscore');
-var styles = require('./styles');
+
+  personRef,
+  styles = require('./styles');
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
@@ -41,6 +42,7 @@ var {
 /*========================================================||
 ||   Adds the SearchNav view on top of Katfish            ||
 ||========================================================*/
+
 var MoreNav = React.createClass ({
   render() {
     if(this.state){
@@ -62,24 +64,14 @@ renderLoadingView() {
     );
 },
 renderTraits(list){
-  // console.log(list)
   return (
     <View style={styles.moreNavContainer}>
     <Image source={{uri: 'http://graph.facebook.com/' + window.Katfish.userID + '/picture?type=large'}}
     style={{marginTop: 80, width: 200, height: 200, borderRadius: 100}} />
-      <TouchableHighlight onPress={this.clickHandler}>
-        <Image
-          // source={require('../Images/fblogout.png')}
-          style={styles.loginButton}/>
-      </TouchableHighlight>
+        <Image style={styles.loginButton}/>
       <View>
         <Text numberOfLines={list.length} style={styles.title}>My friends say I am {list.slice(0,list.length-1).join(", ")} and {list.slice(list.length-1)}</Text>
       </View>
-      <TouchableHighlight onPress={this.clickHandler}>
-        <Image
-          // source={require('../Images/fblogout.png')}
-          style={styles.loginButton}/>
-      </TouchableHighlight>
     </View>
     );
 },
@@ -88,7 +80,6 @@ fireCall(){
   var result = [[0,0]];
   ref.on("value", function(snapshot) {
     var temp = snapshot.val().pond[window.Katfish.userID];
-    console.log(temp);
     for(var key in temp){
       if(key !== 'name' && key !== 'id'){
         if(result.length < 1) {

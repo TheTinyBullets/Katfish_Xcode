@@ -50,8 +50,6 @@ var fetchMyId = new FBSDKGraphRequest((error, result) => {
   console.log('FB id received')
   window.Katfish.userName = result.name;
   window.Katfish.userID = result.id
-  console.log("SpecialID access",result.id);
-
   ref.on("value", function (snap) {
     console.log();
     if (Object.keys(snap.val().pond).indexOf(result.id) > -1) {

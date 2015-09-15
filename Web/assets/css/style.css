@@ -124,7 +124,7 @@ form.signup input.form-control:focus {
 #wrapper {
 	text-align: center;
 	padding: 50px 0;
-	background: url(../img/backsplash.jpg) no-repeat center top;
+	background: url(../img/backsplash.png) no-repeat center top;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 650px;
@@ -153,6 +153,7 @@ form.signup input.form-control:focus {
 
 h2.subtitle {
 	color: #003366;
+  padding-top: 80px;
 	font-size: 24px;
 }
 

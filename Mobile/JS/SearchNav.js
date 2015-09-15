@@ -7,14 +7,16 @@
 var React = require('react-native'),
   REQUEST_URL = 'https://katfish.firebaseio.com/pond.json',
   Firebase = require('firebase'),
-  person = require('./PersonDB');
+  person = require('./PersonDB'),
+  ref = new Firebase("https://katfish.firebaseio.com/"),
 
 /*========================================================||
 ||   Locally defined variables                            ||
 ||========================================================*/
 
-var styles = require('./styles'),
-  userID;
+  styles = require('./styles'),
+  userID,
+  traits;
 
 /*========================================================||
 ||   React native variables, used like HTML tags          ||
@@ -48,29 +50,17 @@ var SearchNav = React.createClass ({
   };
 },
 
-componentDidMount(){
-  this.fetchData();
-},
-
-fetchData () {
-  return(
-    fetch(REQUEST_URL)
-    .then((response) => response.json())
-    .then((responseData) => {
-      this.setState({
-        traits: responseData[userID],
-        loaded: true
-      })
-    })
-    .done()
-    )
-},
-
 render() {
+  var that = this;
   if (!this.state.loaded) {
+    ref.once("value", function(snapshot) {
+      that.setState({
+        traits: snapshot.val().pond[userID],
+        loaded:true});
+    });
     return this.renderLoadingView();
   }
-  var traits = this.state.traits;
+  traits = this.state.traits;
   return this.renderTraits(traits);
 },
 
@@ -83,36 +73,34 @@ renderLoadingView() {
 },
 
 renderTraits(traitData) {
- var lines = Object.keys(traitData).length,
-   traits = [],
-   countVotes = [],
-   vote,
-   count;
- for(var key in traitData){
+  var lines = Object.keys(traitData).length,
+    traits = [],
+    countVotes = [],
+    vote,
+    count;
+  for(var key in traitData){
     count = -1;
-  for (var vote in traitData[key]) {
-    count++
-  }
-  if (key !== 'name' && key !== 'id' && count > 0) {
-    // traits.push(key," ", count,"
+    for (var vote in traitData[key]) { count++; }
+    if (key !== 'name' && key !== 'id' && count > 0) {
       var vote = "votes";
       if (count === 1) { vote = vote.replace(/s/,""); }
       countVotes.push(count  + " " + vote + "                                ");
       traits.push(key.replace(/\w/,function(s){return s.toUpperCase(); }) + "                      ");
-    // traits.push(key.replace(/\w/,function(s){return s.toUpperCase(); }) +' ( ' + count + ' )' + "                                             ");
+    }
   }
-}
-return (
- <View style={styles.container}>
- <View style={styles.rightContainer}>
- <Text numberOfLines={lines} style={styles.title}> {traits}</Text>
- </View>
- <View style={styles.rightContainer}>
- <Text numberOfLines={lines} style={styles.title}> {countVotes}</Text>
- </View>
- </View>
- )
-}
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.rightContainer}>
+          <Text numberOfLines={lines} style={styles.title}> {traits}</Text>
+        </View>
+        <View style={styles.rightContainer}>
+          <Text numberOfLines={lines} style={styles.title}> {countVotes}</Text>
+        </View>
+      </View>
+    )
+  }
+
 });
 
 module.exports = SearchNav;
