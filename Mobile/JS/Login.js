@@ -2,11 +2,12 @@
 ||   Required Modules for React Native       ||
 ||===========================================*/
 
-var React = require('react-native');
-var FBSDKLogin = require('react-native-fbsdklogin');
-var FBSDKCore = require('react-native-fbsdkcore');
-var Firebase = require('firebase');
-var ref = new Firebase("https://katfish.firebaseio.com/");
+var React = require('react-native'),
+  styles = require('./styles'),
+  FBSDKLogin = require('react-native-fbsdklogin'),
+  FBSDKCore = require('react-native-fbsdkcore'),
+  Firebase = require('firebase'),
+  ref = new Firebase("https://katfish.firebaseio.com/");
 
 /*===============================================||
 ||   Required components for React inline tags   ||
@@ -14,8 +15,8 @@ var ref = new Firebase("https://katfish.firebaseio.com/");
 
 var {
   AppRegistry,
-  StyleSheet,
   Text,
+  StyleSheet,
   View,
   TouchableHighlight,
   Image

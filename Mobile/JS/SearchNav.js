@@ -53,7 +53,7 @@ var SearchNav = React.createClass ({
 render() {
   var that = this;
   if (!this.state.loaded) {
-    ref.once("value", function(snapshot) {
+    ref.on("value", function(snapshot) {
       that.setState({
         traits: snapshot.val().pond[userID],
         loaded:true});
@@ -73,11 +73,13 @@ renderLoadingView() {
 },
 
 renderTraits(traitData) {
+
   var lines = Object.keys(traitData).length,
     traits = [],
     countVotes = [],
     vote,
     count;
+
   for(var key in traitData){
     count = -1;
     for (var vote in traitData[key]) { count++; }

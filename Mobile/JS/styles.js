@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  /*=================================||
+/*=================================||
 ||  This section for index.ios.js  ||
 ||=================================*/
 
@@ -114,7 +114,8 @@ backgroundView: {
   backgroundColor: 'rgba(0,0,0,0)',
 },
 featContainer: {
-  flex: 1
+  flex: 1,
+  color: '#83aed2'
 },
 scrollView: {
   marginTop: -16,
@@ -161,7 +162,7 @@ imageBox: {
   flexDirection: 'column',
 },
 shareButton: {
-  backgroundColor: '#c81c4e',
+  backgroundColor: '#3b5998',
   alignItems: 'center',
   justifyContent: 'center',
 },

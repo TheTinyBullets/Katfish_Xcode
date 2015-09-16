@@ -9,7 +9,7 @@ var React = require('react-native'),
   person = require('./PersonDB'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child(person.id);
+  personRef;
 
 /*========================================================||
 ||   React native variables, used as inline tags          ||
@@ -68,6 +68,7 @@ class Featured extends Component {
   }
   getTraits(){
     person.shuffle(qualities);
+    personRef = ref.child("pond").child(person.id);
     for (var i = 0; i < qualities.length; i++) {
       var vote = {};
       vote[window.Katfish.userID] = true;
