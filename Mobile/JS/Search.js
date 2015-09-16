@@ -6,13 +6,13 @@
 
 var React = require('react-native'),
   Firebase = require('firebase'),
-  person = require('./PersonDB');
+  person = require('./PersonDB'),
 
 /*========================================================||
 ||   Locally required sources                             ||
 ||========================================================*/
 
-var styles = require('./styles'),
+  styles = require('./styles'),
   SearchNav = require('./SearchNav');
 
 /*========================================================||
@@ -20,9 +20,9 @@ var styles = require('./styles'),
 ||========================================================*/
 
 var {
-    NavigatorIOS,
-    Component
-   } = React;
+  NavigatorIOS,
+  Component
+} = React;
 
 
 /*========================================================||
