@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = {
-  /*=================================||
+/*=================================||
 ||  This section for index.ios.js  ||
 ||=================================*/
 
@@ -11,11 +11,11 @@ module.exports = {
    flexDirection: 'row',
    justifyContent: 'flex-start',
    alignItems: 'center',
-   backgroundColor: '#F5FCFF',
+   backgroundColor: '#f3f3ec',
  },
  rightContainer: {
    flex: 1,
-   backgroundColor: "#3399FF"
+   backgroundColor: '#83aed2'
  },
  title: {
    fontSize: 20,
@@ -31,7 +31,7 @@ module.exports = {
  },
  listView: {
    paddingTop: 20,
-   backgroundColor: '#F5FCFF',
+   backgroundColor: '#c81c4e',
  },
  buttonText: {
    fontSize: 18,
@@ -41,7 +41,7 @@ module.exports = {
  button: {
    height: 44,
    flexDirection: 'row',
-   backgroundColor: '#48BBEC',
+   backgroundColor: '#083070',
    justifyContent: 'center',
    transform: [{'translate' : [0, 0, 99]}]
  },
@@ -66,7 +66,7 @@ featNavContainer: {
 },
 featNavButtonText: {
  fontSize: 18,
- color: '#3366ff',
+ color: '#083070',
  alignSelf: 'center'
 },
 featNavButton: {
@@ -114,7 +114,8 @@ backgroundView: {
   backgroundColor: 'rgba(0,0,0,0)',
 },
 featContainer: {
-  flex: 1
+  flex: 1,
+  color: '#83aed2'
 },
 scrollView: {
   marginTop: -16,

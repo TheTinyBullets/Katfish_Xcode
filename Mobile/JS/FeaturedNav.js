@@ -9,7 +9,7 @@ var React = require('react-native'),
   person = require('./PersonDB'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
-  personRef = ref.child("pond").child(person.id);
+  personRef;
 
 /*========================================================||
 ||   React native variables, used as inline tags          ||
@@ -21,6 +21,7 @@ var {
  Text,
  Image,
  TouchableHighlight,
+ TouchableOpacity,
  Component
 } = React;
 
@@ -39,13 +40,20 @@ var indents = [],
 ||========================================================*/
 
 class Featured extends Component {
+
+  getInitialState() {
+    return {
+      opacity: 0.2,
+    }
+  }
+
   render() {
     this.getTraits();
     return (
       <View style={styles.featNavContainer}>
-        <Image source={{uri: 'http://chrissalam.com/bash/sailing.png'}} style={{backgroundColor: 'transparent'}}>
+        <Image source={{uri: 'http://chrissalam.com/bash/sailing.png'}} style={{backgroundColor: 'transparent', height: '600'}}>
           <Image source={{uri: 'http://graph.facebook.com/' + person.id + '/picture?type=large'}}
-                 style={{marginTop: 80, width: 200, height: 200, borderRadius: 100}} />
+                 style={{marginTop: 40, marginLeft:20, width: 170, height: 170, borderRadius: 85}} />
             <ScrollView
               onScroll={() => { console.log('onScroll!'); }}
               scrollEventThrottle={200}
@@ -53,18 +61,22 @@ class Featured extends Component {
               style={styles.scrollView}>
               {indents}
             </ScrollView>
+
         </Image>
       </View>
     );
   }
   getTraits(){
     person.shuffle(qualities);
+    personRef = ref.child("pond").child(person.id);
     for (var i = 0; i < qualities.length; i++) {
       var vote = {};
       vote[window.Katfish.userID] = true;
       (function runIt(variable){
         indents.push(
           <TouchableHighlight style={styles.featNavButton}
+          activeOpacity={0.5}
+          underlayColor={'white'}
           onPress={()=>{
             personRef.child(variable).update(vote)
             qualities.splice(qualities.indexOf(vote),1);

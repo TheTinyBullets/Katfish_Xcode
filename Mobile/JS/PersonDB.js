@@ -5,10 +5,11 @@
 ||========================================================*/
 
 var React = require('react-native'),
-Firebase = require('firebase'),
-ref = new Firebase("https://katfish.firebaseio.com/"),
-friendStore,
-person = {};
+  Firebase = require('firebase'),
+  ref = new Firebase("https://katfish.firebaseio.com/"),
+  friendStore,
+  friendsList,
+  person = {};
 
 /*========================================================||
 ||   Setting for individual id (table below)              ||
@@ -23,7 +24,13 @@ person.shuffle = function(array) {
   }
   return array;
 }
-person.id = '100010275515528'
+
+person.id = "id"
+
+ref.once('value', function(snapshot) {
+  friendsList = Object.keys(snapshot.val().pond);
+  console.log('friendsList',friendsList);
+});
 
 /*========================================================||
 ||   Accessing the database through firebase functions    ||
@@ -31,7 +38,12 @@ person.id = '100010275515528'
 
 person.fish = function(friends){
   this.shuffle(friends);
-  friendStore = friends.shift()
+  friendStore = friends.shift();
+  if (friendStore.name === window.Katfish.name) {
+    console.log("conflict!");
+    friendStore = friends.shift();
+    console.log("conflict corrected");
+  }
   person.id = friendStore.id;
   person.name = friendStore.name;
   friends.push({id : person.id});
