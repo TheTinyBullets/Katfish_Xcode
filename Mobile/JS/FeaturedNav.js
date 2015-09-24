@@ -9,6 +9,7 @@ var React = require('react-native'),
   person = require('./PersonDB'),
   Firebase = require('firebase'),
   ref = new Firebase("https://katfish.firebaseio.com/"),
+  tallyNav = require('./tallyNav'),
   personRef;
 
 /*========================================================||
@@ -39,7 +40,7 @@ var indents = [],
 ||   This calls down specific images and makes the list   ||
 ||========================================================*/
 
-class Featured extends Component {
+class FeaturedNav extends Component {
 
   getInitialState() {
     return {
@@ -48,12 +49,28 @@ class Featured extends Component {
   }
 
   render() {
+    window.FeaturedNav = this;
+    person.shuffle(qualities);
     this.getTraits();
     return (
       <View style={styles.featNavContainer}>
-        <Image source={{uri: 'http://chrissalam.com/bash/sailing.png'}} style={{backgroundColor: 'transparent', height: '600'}}>
-          <Image source={{uri: 'http://graph.facebook.com/' + person.id + '/picture?type=large'}}
-                 style={{marginTop: 40, marginLeft:20, width: 170, height: 170, borderRadius: 85}} />
+        <Image source={{uri: 'http://chrissalam.com/bash/beach-4.jpg'}} style={{backgroundColor: 'transparent', height: '600'}}>
+          <TouchableHighlight underlayColor='transparent'
+            onPress={()=>{ console.log("See your friend's stats")
+              this.props.navigator.push({
+                title: 'Stats for '+ person.name,
+                component: tallyNav,
+                leftButtonTitle: 'Back',
+                onLeftButtonPress: () => this.props.navigator.pop(),
+            })
+          }}>
+            <Image source={{uri: 'http://graph.facebook.com/' + person.id + '/picture?type=large'}}
+                 style={{marginTop: 40, marginLeft:20, width: 170, height: 170, borderRadius: 85, borderWidth:5, borderColor:'#FF7E47'}}>
+              <View style={styles.navOverlay}>
+                <Text style={styles.navChoiceText}>see stats!</Text>
+              </View>
+            </Image>
+          </TouchableHighlight>
             <ScrollView
               onScroll={() => { console.log('onScroll!'); }}
               scrollEventThrottle={200}
@@ -61,13 +78,11 @@ class Featured extends Component {
               style={styles.scrollView}>
               {indents}
             </ScrollView>
-
         </Image>
       </View>
     );
   }
   getTraits(){
-    person.shuffle(qualities);
     personRef = ref.child("pond").child(person.id);
     for (var i = 0; i < qualities.length; i++) {
       var vote = {};
@@ -75,8 +90,7 @@ class Featured extends Component {
       (function runIt(variable){
         indents.push(
           <TouchableHighlight style={styles.featNavButton}
-          activeOpacity={0.5}
-          underlayColor={'white'}
+          underlayColor={'rgba(200,28,78,0.2)'}
           onPress={()=>{
             personRef.child(variable).update(vote)
             qualities.splice(qualities.indexOf(vote),1);
@@ -88,4 +102,4 @@ class Featured extends Component {
   }
 }
 
-module.exports = Featured;
+module.exports = FeaturedNav;

@@ -35,7 +35,7 @@ class Search extends Component {
             <NavigatorIOS
                 style={styles.searchContainer}
                 initialRoute={{
-            title: person.name,
+            title: "Your friends",
             component: SearchNav
             }}/>
         );

@@ -5,41 +5,29 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>7D852BDD-DA57-4362-9922-56C6788CF4AB</string>
+	<string>63B11E5D-4B64-452E-A42C-2DC067E0C961</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Katfish</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>04FF9B60B856DA69BAD1688AB6E56F23BEB6BC1C</key>
-		<string>https://github.com/ceditoph/ceditoph.github.io.git</string>
 		<key>C45C6DD4A723170F4BD4C78087E77DFE9C6EED02</key>
-		<string>https://github.com/ceditoph/Katfish.git</string>
+		<string>https://github.com/TheTinyBullets/KatfishJS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Mobile/iOS/Katfish.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>04FF9B60B856DA69BAD1688AB6E56F23BEB6BC1C</key>
-		<string>../../../../..</string>
 		<key>C45C6DD4A723170F4BD4C78087E77DFE9C6EED02</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ceditoph/Katfish.git</string>
+	<string>https://github.com/TheTinyBullets/KatfishJS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>C45C6DD4A723170F4BD4C78087E77DFE9C6EED02</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>04FF9B60B856DA69BAD1688AB6E56F23BEB6BC1C</string>
-			<key>IDESourceControlWCCName</key>
-			<string></string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

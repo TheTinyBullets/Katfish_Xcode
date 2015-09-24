@@ -3,7 +3,6 @@
 ||===========================================*/
 
 var React = require('react-native'),
-  styles = require('./styles'),
   FBSDKLogin = require('react-native-fbsdklogin'),
   FBSDKCore = require('react-native-fbsdkcore'),
   Firebase = require('firebase'),
@@ -52,7 +51,6 @@ var fetchMyId = new FBSDKGraphRequest((error, result) => {
   window.Katfish.userName = result.name;
   window.Katfish.userID = result.id
   ref.on("value", function (snap) {
-    console.log();
     if (Object.keys(snap.val().pond).indexOf(result.id) > -1) {
       console.log("Welcome, previous user!");
     }
@@ -73,8 +71,6 @@ var fetchMyId = new FBSDKGraphRequest((error, result) => {
             console.log("newuser name & ID could not be saved." + error);
           } else {
             console.log("newuser name & ID saved successfully.");
-            // newuserRef.remove();
-            // console.log("newuser name & ID removed successfully.");
           }
         });
     }
@@ -90,6 +86,7 @@ var fetchFriendsRequest = new FBSDKGraphRequest((error, result) => {
  if (error) {
    console.log('Error making request.', error);
  } else {
+   window.Katfish.friends = result.data
    require('./PersonDB').fish(result.data);
  }
 }, '/me/friends', {}, this.tokenString, "v2.4", "GET");
