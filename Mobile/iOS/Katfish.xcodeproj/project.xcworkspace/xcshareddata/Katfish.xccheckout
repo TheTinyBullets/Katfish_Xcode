@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>63B11E5D-4B64-452E-A42C-2DC067E0C961</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Katfish</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C45C6DD4A723170F4BD4C78087E77DFE9C6EED02</key>
 		<string>https://github.com/TheTinyBullets/KatfishJS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Mobile/iOS/Katfish.xcodeproj</string>
+	<string>Mobile/iOS/Katfish.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>C45C6DD4A723170F4BD4C78087E77DFE9C6EED02</key>
